@@ -142,24 +142,9 @@
 			<RegExp input="$$2" output="\2" dest="10">
 				<expression>/api/(.+)/series/([0-9]*)/all/(.+).xml</expression>
 			</RegExp>
-			<RegExp conditional="!dvdorder" input="" output="" dest="3">
-				<!--Regular episodes (Absolute order)-->
-				<RegExp conditional="absolutenumber" input="$$1" output="&lt;episode&gt;&lt;id&gt;\1&lt;/id&gt;&lt;title&gt;\2&lt;/title&gt;&lt;aired&gt;\3&lt;/aired&gt;&lt;epnum&gt;\4&lt;/epnum&gt;&lt;season&gt;1&lt;/season&gt;&lt;url cache=&quot;$$10.xml&quot;&gt;$$2&lt;/url&gt;&lt;/episode&gt;" dest="4+">
-					<expression repeat="yes">&lt;Episode&gt;.*?&lt;id&gt;([0-9]*).*?&lt;EpisodeName&gt;([^&lt;]*).*?&lt;FirstAired&gt;([^&lt;]*).*?&lt;absolute_number&gt;([0-9]*).*?&lt;/Episode&gt;</expression>
-				</RegExp>
-				<!--Specials (Absolute order)-->
-				<RegExp conditional="absolutenumber" input="$$1" output="&lt;episode&gt;&lt;id&gt;\1&lt;/id&gt;&lt;title&gt;\2&lt;/title&gt;&lt;aired&gt;\4&lt;/aired&gt;&lt;epnum&gt;\3&lt;/epnum&gt;&lt;season&gt;0&lt;/season&gt;&lt;url cache=&quot;$$10.xml&quot;&gt;$$2&lt;/url&gt;&lt;/episode&gt;" dest="4+">
-					<expression repeat="yes">&lt;Episode&gt;.*?&lt;id&gt;([0-9]*).*?&lt;EpisodeName&gt;([^&lt;]*).*?&lt;EpisodeNumber&gt;([0-9]*).*?&lt;FirstAired&gt;([^&lt;]*).*?&lt;SeasonNumber&gt;0&lt;/SeasonNumber&gt;.*?&lt;/Episode&gt;</expression>
-				</RegExp>
-				<!--Normal episodes-->
-				<RegExp conditional="!absolutenumber" input="$$1" output="&lt;episode&gt;&lt;title&gt;\2&lt;/title&gt;&lt;url cache=&quot;$$10.xml&quot;&gt;$$2&lt;/url&gt;&lt;epnum&gt;\3&lt;/epnum&gt;&lt;season&gt;\5&lt;/season&gt;&lt;id&gt;\1&lt;/id&gt;&lt;aired&gt;\4&lt;/aired&gt;&lt;/episode&gt;" dest="4">
-					<expression repeat="yes">&lt;Episode&gt;.*?&lt;id&gt;([0-9]+).*?&lt;EpisodeName&gt;([^&lt;]*).*?&lt;EpisodeNumber&gt;([0-9]+)[^&lt;]*.*?&lt;FirstAired&gt;([^&lt;]*)&lt;/FirstAired&gt;.*?&lt;SeasonNumber&gt;([0-9]+)[^&lt;]*.*?&lt;/Episode&gt;</expression>
-				</RegExp>
-				<expression />
-			</RegExp>
-			<!--DVD order-->
-			<RegExp conditional="dvdorder" input="$$1" output="&lt;episode&gt;&lt;title&gt;\4&lt;/title&gt;&lt;url cache=&quot;$$10.xml&quot;&gt;$$2&lt;/url&gt;&lt;epnum&gt;\2&lt;/epnum&gt;&lt;season&gt;\3&lt;/season&gt;&lt;id&gt;\1&lt;/id&gt;&lt;aired&gt;\5&lt;/aired&gt;&lt;/episode&gt;" dest="4">
-				<expression repeat="yes">&lt;Episode&gt;.*?&lt;id&gt;([0-9]+).*?&lt;Combined_episodenumber&gt;([^&lt;]*).*?&lt;Combined_season&gt;([^&lt;]*).*?&lt;EpisodeName&gt;([^&lt;]*).*?&lt;FirstAired&gt;([^&lt;]*)&lt;/FirstAired&gt;.*?&lt;/Episode&gt;</expression>
+			<!--Normal episodes-->
+			<RegExp input="$$1" output="&lt;episode&gt;&lt;title&gt;\2&lt;/title&gt;&lt;url cache=&quot;$$10.xml&quot;&gt;$$2&lt;/url&gt;&lt;epnum&gt;\3&lt;/epnum&gt;&lt;season&gt;\5&lt;/season&gt;&lt;id&gt;\1&lt;/id&gt;&lt;aired&gt;\4&lt;/aired&gt;&lt;/episode&gt;" dest="4">
+				<expression repeat="yes">&lt;Episode&gt;.*?&lt;id&gt;([0-9]+).*?&lt;EpisodeName&gt;([^&lt;]*).*?&lt;EpisodeNumber&gt;([0-9]+)[^&lt;]*.*?&lt;FirstAired&gt;([^&lt;]*)&lt;/FirstAired&gt;.*?&lt;SeasonNumber&gt;([0-9]+)[^&lt;]*.*?&lt;/Episode&gt;</expression>
 			</RegExp>
 			<expression noclean="1" />
 		</RegExp>
@@ -212,19 +197,11 @@
 			<RegExp input="$$8" output="&lt;title&gt;\1&lt;/title&gt;" dest="4+">
 				<expression>&lt;EpisodeName&gt;([^&lt;]*)&lt;/EpisodeName&gt;</expression>
 			</RegExp>
-			<!--Regular Episodes - Absolute Order-->
-			<RegExp conditional="absolutenumber" input="$$8" output="&lt;season&gt;1&lt;/season&gt;&lt;episode&gt;\2&lt;/episode&gt;" dest="4+">
-				<expression>&lt;SeasonNumber&gt;([1-9]*)&lt;/SeasonNumber&gt;.*?&lt;absolute_number&gt;([0-9]*)&lt;/absolute_number&gt;</expression>
-			</RegExp>
-			<!--Specials - Absolute Order-->
-			<RegExp conditional="absolutenumber" input="$$8" output="&lt;season&gt;0&lt;/season&gt;&lt;episode&gt;\1&lt;/episode&gt;" dest="4+">
-				<expression>&lt;EpisodeNumber&gt;([0-9]*)&lt;/EpisodeNumber&gt;.*?&lt;SeasonNumber&gt;0&lt;/SeasonNumber&gt;</expression>
-			</RegExp>
 			<!--Normal Season/Episodes-->
-			<RegExp conditional="!absolutenumber" input="$$8" output="&lt;season&gt;\1&lt;/season&gt;" dest="4+">
+			<RegExp input="$$8" output="&lt;season&gt;\1&lt;/season&gt;" dest="4+">
 				<expression>&lt;SeasonNumber&gt;([^&lt;]*)&lt;/SeasonNumber&gt;</expression>
 			</RegExp>
-			<RegExp conditional="!absolutenumber" input="$$8" output="&lt;episode&gt;\1&lt;/episode&gt;" dest="4+">
+			<RegExp input="$$8" output="&lt;episode&gt;\1&lt;/episode&gt;" dest="4+">
 				<expression>&lt;EpisodeNumber&gt;([^&lt;]*)&lt;/EpisodeNumber&gt;</expression>
 			</RegExp>
 			<RegExp input="$$8" output="&lt;thumb&gt;http://thetvdb.com/banners/\1&lt;/thumb&gt;" dest="4+">

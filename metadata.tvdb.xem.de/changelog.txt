@@ -1,3 +1,6 @@
+[B]1.0.3[/B]
+- Remove languages and ordering settings
+
 [B]1.0.2[/B]
 - Minor Tweaks
 
