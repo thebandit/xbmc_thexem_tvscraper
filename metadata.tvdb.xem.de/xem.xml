@@ -19,10 +19,10 @@
 
 	<EpisodeGuideUrl dest="3">
 		<RegExp input="$$1" output="\1" dest="3">
-			<expression>(.*?http://www.thetvdb.com.*)</expression>
+			<expression>(.*?http://www.thexem.de.*)</expression>
 		</RegExp>
 		<RegExp input="$$1" output="\1" dest="3">
-			<expression>(.*?http://thetvdb.com.*)</expression>
+			<expression>(.*?http://thexem.de.*)</expression>
 		</RegExp>
 	</EpisodeGuideUrl>
 
