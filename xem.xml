@@ -222,35 +222,11 @@
 			<RegExp input="$$8" output="&lt;title&gt;\1&lt;/title&gt;" dest="4+">
 				<expression>&lt;EpisodeName&gt;([^&lt;]*)&lt;/EpisodeName&gt;</expression>
 			</RegExp>
-			<!-- Regular Episodes - Absolute Order -->
-			<RegExp conditional="absolutenumber" input="$$8" output="&lt;season&gt;1&lt;/season&gt;&lt;episode&gt;\2&lt;/episode&gt;" dest="4+">
-				<expression>&lt;SeasonNumber&gt;([1-9]*)&lt;/SeasonNumber&gt;.*?&lt;absolute_number&gt;([0-9]*)&lt;/absolute_number&gt;</expression>
-			</RegExp>
-			<!-- Specials - Absolute Order -->
-			<RegExp conditional="absolutenumber" input="$$8" output="&lt;season&gt;0&lt;/season&gt;&lt;episode&gt;\1&lt;/episode&gt;" dest="4+">
-				<expression>&lt;EpisodeNumber&gt;([0-9]*)&lt;/EpisodeNumber&gt;.*?&lt;SeasonNumber&gt;0&lt;/SeasonNumber&gt;</expression>
-			</RegExp>
-			<!-- Normal Season/Episodes -->
-			<RegExp conditional="!absolutenumber" input="$$8" output="&lt;season&gt;\1&lt;/season&gt;" dest="4+">
-				<expression>&lt;SeasonNumber&gt;([^&lt;]*)&lt;/SeasonNumber&gt;</expression>
-			</RegExp>
-			<RegExp conditional="!absolutenumber" input="$$8" output="&lt;episode&gt;\1&lt;/episode&gt;" dest="4+">
-				<expression>&lt;EpisodeNumber&gt;([^&lt;]*)&lt;/EpisodeNumber&gt;</expression>
-			</RegExp>
 			<RegExp input="$$8" output="&lt;thumb&gt;http://thetvdb.com/banners/\1&lt;/thumb&gt;" dest="4+">
 				<expression>&lt;filename&gt;([^&lt;]+)&lt;/filename&gt;</expression>
 			</RegExp>
 			<RegExp input="$$8" output="&lt;aired&gt;\1&lt;/aired&gt;" dest="4+">
 				<expression>&lt;FirstAired&gt;([^&lt;]+)&lt;/FirstAired&gt;</expression>
-			</RegExp>
-			<RegExp input="$$8" output="&lt;displayseason&gt;\1&lt;/displayseason&gt;" dest="4+">
-				<expression>&lt;airsbefore_season&gt;([^&lt;]+)&lt;/airsbefore_season&gt;</expression>
-			</RegExp>
-			<RegExp input="$$8" output="&lt;displayepisode&gt;\1&lt;/displayepisode&gt;" dest="4+">
-				<expression>&lt;airsbefore_episode&gt;([^&lt;]+)&lt;/airsbefore_episode&gt;</expression>
-			</RegExp>
-			<RegExp input="$$8" output="&lt;displayafterseason&gt;\1&lt;/displayafterseason&gt;" dest="4+">
-				<expression>&lt;airsafter_season&gt;([^&lt;]+)&lt;/airsafter_season&gt;</expression>
 			</RegExp>
 			<RegExp input="$$8" output="&lt;rating&gt;\1&lt;/rating&gt;" dest="4+">
 				<expression>&lt;Rating&gt;([^&lt;]+)&lt;/Rating&gt;</expression>
