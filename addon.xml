@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="metadata.tvdb.xem.de"
-       name="TVDB via TheXEM.de Proxy"
+       name="XEM"
        version="1.0.3"
        provider-name="XBMC Community">
   <requires>
@@ -11,8 +11,8 @@
              library="xem.xml"
              cachepersistence="00:15"/>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Fetch TV show metadata from TheTVDB.com via TheXEM.de proxy</summary>
-    <description lang="en">This TV Scraper uses the TheXEM.de proxy service to map commonly used episode numbering to their TheTVDB.com counterparts. For more information please visit TheXEM.de.</description>
+    <summary lang="en">Fetch metadata from TheTVDB.com and episode numbering from other sources</summary>
+    <description lang="en">TheXEM.de is a site that map episode numbering from multiple sources to their TheTVDB.com counterparts. This scraper let you choose between "scene", AniDB.net and TVRage.com, or the original TheTVDB.com order, as the source for the episode numbering; then fetch the correct data from TheTVDB.com. For more information please visit TheXEM.de</description>
     <platform>all</platform>
   </extension>
 </addon>
