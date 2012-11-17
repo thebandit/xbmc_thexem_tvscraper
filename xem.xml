@@ -61,11 +61,11 @@
 			<RegExp input="$$2" output="\1" dest="2">
 				<expression repeat="no" clear="yes">\[(.*)\]</expression>
 			</RegExp>
-			<RegExp input="$$2" output="\1\n" dest="2">
+			<RegExp input="$$2" output="\1|" dest="2">
 				<expression repeat="yes" clear="yes">(\{.*?\})\}</expression>
 			</RegExp>
 			<RegExp input="$$2" output="&lt;episode&gt;&lt;url&gt;http://www.thetvdb.com/api/1D62F2F90030C444/series/$$10/default/\4/\5/$INFO[language].xml&lt;/url&gt;&lt;epnum&gt;\2&lt;/epnum&gt;&lt;season&gt;\1&lt;/season&gt;&lt;/episode&gt;" dest="4">
-				<expression repeat="yes" clear="no">&quot;scene&quot;:{&quot;season&quot;:([0-9]+),&quot;episode&quot;:([0-9]+),&quot;absolute&quot;:([0-9]+).*?&quot;tvdb&quot;:{&quot;season&quot;:([0-9]+),&quot;episode&quot;:([0-9]+),&quot;absolute&quot;:([0-9]+)</expression>
+				<expression repeat="yes" clear="no">&quot;$INFO[listing]&quot;:{&quot;season&quot;:([0-9]+),&quot;episode&quot;:([0-9]+),&quot;absolute&quot;:([0-9]+)[^|]*?&quot;tvdb&quot;:{&quot;season&quot;:([0-9]+),&quot;episode&quot;:([0-9]+),&quot;absolute&quot;:([0-9]+)</expression>
 			</RegExp>
 			<expression noclean="1" />
 		</RegExp>
