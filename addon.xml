@@ -4,7 +4,7 @@
        version="1.0.4"
        provider-name="XBMC Community">
   <requires>
-    <import addon="xbmc.metadata" version="1.0"/>
+    <import addon="xbmc.metadata" version="2.1.0"/>
   </requires>
   <extension point="xbmc.metadata.scraper.tvshows"
              language="multi"
